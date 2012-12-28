@@ -72,7 +72,7 @@
 
       $tableBox_string .= '</table>' . "\n";
 
-      if ($form_set == true) $tableBox_string .= '</form>' . "\n";
+      if ($form_set == true) $tableBox_string .= '</div></form>' . "\n";
 
       return $tableBox_string;
     }

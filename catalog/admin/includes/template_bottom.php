@@ -15,7 +15,5 @@
 
 <?php require(DIR_WS_INCLUDES . 'footer.php'); ?>
 
-<br />
-
 </body>
 </html>

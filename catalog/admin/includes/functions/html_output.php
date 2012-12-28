@@ -36,7 +36,9 @@
     }
 
     while ( (substr($link, -1) == '&') || (substr($link, -1) == '?') ) $link = substr($link, 0, -1);
-
+    
+    $link = str_replace('&', '&amp;', $link);
+    
     return $link;
   }
 
@@ -62,11 +64,37 @@
 
     return $link;
   }
-
+  
+  ////
+  /* Output an iframe
+   @parameters
+  title=""
+  allowtransparency="true"
+  vspace="0"
+  tabindex="0"
+  marginwidth="0"
+  marginheight="0"
+  hspace="0"
+  frameborder="0"
+  scrolling="no"
+  width="100%">
+  */
+  function tep_draw_iframe($name, $src, $parameters = '', $style = '') {
+  
+  	$iframe = '<iframe name="' . tep_output_string($name) . ' id="' . tep_output_string($name) . '" src="' . tep_output_string($src) . '"';
+  
+  	if (tep_not_null($parameters)) $form .= ' ' . $parameters;
+  	if (tep_not_null($style)) $form .= ' ' . $style;
+  
+  	$iframe .= '></iframe>';
+  
+  	return $iframe;
+  }
+  
 ////
 // The HTML image wrapper function
   function tep_image($src, $alt = '', $width = '', $height = '', $parameters = '') {
-    $image = '<img src="' . tep_output_string($src) . '" border="0" alt="' . tep_output_string($alt) . '"';
+    $image = '<img src="' . tep_output_string($src) . '" alt="' . tep_output_string($alt) . '"';
 
     if (tep_not_null($alt)) {
       $image .= ' title="' . tep_output_string($alt) . '"';
@@ -78,7 +106,7 @@
 
     if (tep_not_null($parameters)) $image .= ' ' . $parameters;
 
-    $image .= ' />';
+    $image .= '>';
 
     return $image;
   }
@@ -163,8 +191,11 @@
     $form .= '" method="' . tep_output_string($method) . '"';
     if (tep_not_null($params)) {
       $form .= ' ' . $params;
+	//added for placing the class to div
+	  $class_match = preg_match('~class=".*"~', $params,$class);
+      $class = ($class_match) ? ' '.str_replace(array('class=','"'), '', $class[0]) : '';
     }
-    $form .= '>';
+    $form .= '><div class="formContent'. $class .'">';
 
     return $form;
   }
@@ -190,7 +221,7 @@
 
     if (tep_not_null($parameters)) $field .= ' ' . $parameters;
 
-    $field .= ' />';
+    $field .= '>';
 
     if ($required == true) $field .= TEXT_FIELD_REQUIRED;
 
@@ -226,7 +257,7 @@
       $selection .= ' checked="checked"';
     }
 
-    $selection .= ' />';
+    $selection .= '>';
 
     return $selection;
   }
@@ -289,7 +320,7 @@
 
     if (tep_not_null($parameters)) $field .= ' ' . $parameters;
 
-    $field .= ' />';
+    $field .= '>';
 
     return $field;
   }

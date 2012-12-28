@@ -9,6 +9,16 @@
   Released under the GNU General Public License
 */
 
+@charset "utf-8";
+/* general we should also add 
+	margin: 0; 
+	border: 0;
+	padding: 0;
+	but many changes to be done
+*/
+* {font-family: Verdana, Arial, sans-serif;
+}
+
 /* links */
 a { font-family: Verdana, Arial, sans-serif; font-size: 10px; color: #000000; font-weight: normal; text-decoration: none; }
 a:hover { text-decoration: underline; }
@@ -34,12 +44,13 @@ body { background-color: #ffffff; color: #000000; margin: 0px; }
 .headerBar { background-color: #B3BAC5; }
 .headerBarContent { font-family: Verdana, Arial, sans-serif; font-size: 10px; color: #ffffff; font-weight: bold; padding: 2px; }
 .columnLeft { background-color: #F0F1F1; border-color: #999999; border-width: 1px; border-style: solid; padding: 2px; }
-.pageHeading { font-family: Verdana, Arial, sans-serif; font-size: 18px; color: #727272; font-weight: bold; }
+.pageHeading { font-family: Verdana, Arial, sans-serif; font-size: 18px; color: #727272; font-weight: bold; padding: 11px 5px;}
 
 /* data table */
 .dataTableHeadingRow { background-color: #C9C9C9; }
 .dataTableHeadingContent { font-family: Verdana, Arial, sans-serif; font-size: 10px; color: #ffffff; font-weight: bold; }
 .dataTableRow { background-color: #F0F1F1; }
+.dataTable tr.alt td { background-color: #ecf6fc; }
 .dataTableRowSelected { background-color: #DEE4E8; }
 .dataTableRowOver { background-color: #FFFFFF; cursor: pointer; cursor: hand; }
 .dataTableContent { font-family: Verdana, Arial, sans-serif; font-size: 10px; color: #000000; }
@@ -55,8 +66,48 @@ body { background-color: #ffffff; color: #000000; margin: 0px; }
 .messageStackSuccess { font-family: Verdana, Arial, sans-serif; font-size: 10px; background-color: #99ff00; }
 
 /* forms */
-CHECKBOX, INPUT, RADIO, SELECT, TEXTAREA, FILE { font-family: Verdana, Arial, sans-serif; font-size: 11px; }
-FORM { display: inline; }
+CHECKBOX, INPUT, RADIO, SELECT, TEXTAREA, FILE { font-family: Verdana, Arial, sans-serif; font-size: 11px; border: thin solid grey; margin: 2px;}
+div.formContent {padding: 2px; }
+form fieldset legend {font-size: 12px; font-weight: bold; padding: 12px 4px;}
+form label {font-weight: bold;
+	display:block;
+	float:left;
+	width:30em;
+	text-align:left;
+	padding:4px;
+	clear:left;
+}
+
+input:focus {
+
+}
+fieldset {position:relative; border: solid thin red;}
+form.newForm checkbox, form.newForm file, form.newForm input, form.newForm radio, form.newForm select {
+	width: 15em;
+	display:block;
+	float:right;
+}
+form.newForm textarea {
+	width: 39em;
+	display:block;
+	float:left;
+}	
+.required{
+	background-color:#EEEEEE;
+	color:#333333;
+	font-weight:bold;
+	border: solid 1px red;
+}
+
+.required input{
+	/*border-left-color:#FF0000;
+	border-left-style:solid;
+	border-left-width:4px;*/
+	border-color:#999999;
+}
+
+
+form.newForm button {float: left; clear: left;}
 
 /* account */
 .formArea { background-color: #f1f9fe; border-color: #7b9ebd; border-style: solid; border-width: 1px; }
@@ -64,13 +115,15 @@ FORM { display: inline; }
 
 /* attributes */
 .attributes-odd { background-color: #f4f7fd; }
-.attributes-even { background-color: #ffffff; }
+.attributes-even { background-color: #ffffff;}
+.productAttributes {white-space:nowrap; font-style: italic; font-size: xx-small; }
 
 /* miscellaneous */
 .specialPrice { color: #ff0000; }
 .oldPrice { text-decoration: line-through; }
 .fieldRequired { font-family: Verdana, Arial, sans-serif; font-size: 10px; color: #ff0000; }
 .smallText { font-family: Verdana, Arial, sans-serif; font-size: 10px; }
+.header { font-family: Verdana, Arial, sans-serif; font-size: 12px; font-weight: bold; padding: 12px 4px;}
 .main { font-family: Verdana, Arial, sans-serif; font-size: 12px; }
 .errorText { font-family: Verdana, Arial, sans-serif; font-size: 10px; color: #ff0000; }
 
@@ -146,3 +199,25 @@ FORM { display: inline; }
 .tdbLink a { }
 
 .tdbLink button { }
+
+.floatRight {float:right;}
+.centerText {text-align: center;}
+.rightText {text-align: right;}
+
+
+/* Form Validation */
+span.error {
+	font: bold 11px Arial, sans-serif;
+	color:#fff;
+	text-shadow: 1px 1px 1px #000;
+	background-color:#968;
+	display: block;
+	text-align: center; 
+	height: 11px;
+	padding: 8px 0;
+	width: 155px; 
+	line-height: 1em; 
+	position: absolute; 
+	top: 5px; 
+	right: -15px; 
+}

@@ -9,12 +9,7 @@
 
   Released under the GNU General Public License
 */
-?>
-<br />
-<table border="0" width="100%" cellspacing="0" cellpadding="2">
-  <tr>
-    <td align="center" class="smallText">
-<?php
+
 /*
   The following copyright announcement is in compliance
   to section 2c of the GNU General Public License, and
@@ -30,14 +25,14 @@
   copyright announcement.
 */
 ?>
-osCommerce Online Merchant Copyright &copy; 2010 <a href="http://www.oscommerce.com" target="_blank">osCommerce</a><br />
-osCommerce provides no warranty and is redistributable under the <a href="http://www.fsf.org/licenses/gpl.txt" target="_blank">GNU General Public License</a>
-    </td>
-  </tr>
-  <tr>
-    <td><?php echo tep_image(DIR_WS_IMAGES . 'pixel_trans.gif', '', '1', '5'); ?></td>
-  </tr>
-  <tr>
-    <td align="center" class="smallText">Powered by <a href="http://www.oscommerce.com" target="_blank">osCommerce</a></td>
-  </tr>
-</table>
+<div class="grid_24 footer">
+  <p class="smallText centerText">osCommerce Online Merchant Copyright &copy; 2010 <a href="http://www.oscommerce.com" target="_blank">osCommerce</a><br>
+osCommerce provides no warranty and is redistributable under the <a href="http://www.fsf.org/licenses/gpl.txt" target="_blank">GNU General Public License</a></p>
+</div>
+<div class="grid_24 footer">
+  <p class="smallText centerText">Powered by <a href="http://www.oscommerce.com" target="_blank">osCommerce</a></p>
+</div>
+
+<script type="text/javascript">
+$('.dataTable tr:nth-child(even)').addClass('alt');
+</script>

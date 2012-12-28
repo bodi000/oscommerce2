@@ -182,10 +182,10 @@
         </table></td>
       </tr>
       <tr>
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
+        <td class="header"><?php echo TABLE_HEADING_PRODUCTS; ?></td>
       </tr>
       <tr>
-        <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
+        <td><table class="dataTable" border="0" width="100%" cellspacing="0" cellpadding="2">
           <tr class="dataTableHeadingRow">
             <td class="dataTableHeadingContent" colspan="2"><?php echo TABLE_HEADING_PRODUCTS; ?></td>
             <td class="dataTableHeadingContent"><?php echo TABLE_HEADING_PRODUCTS_MODEL; ?></td>
@@ -234,67 +234,65 @@
         </table></td>
       </tr>
       <tr>
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
+        <td class="header"><?php echo TABLE_HEADING_HISTORY; ?></td>
       </tr>
       <tr>
-        <td class="main"><table border="1" cellspacing="0" cellpadding="5">
-          <tr>
-            <td class="smallText" align="center"><strong><?php echo TABLE_HEADING_DATE_ADDED; ?></strong></td>
-            <td class="smallText" align="center"><strong><?php echo TABLE_HEADING_CUSTOMER_NOTIFIED; ?></strong></td>
-            <td class="smallText" align="center"><strong><?php echo TABLE_HEADING_STATUS; ?></strong></td>
-            <td class="smallText" align="center"><strong><?php echo TABLE_HEADING_COMMENTS; ?></strong></td>
+        <td><table class="dataTable" border="0" cellspacing="0" cellpadding="5">
+          <tr class="dataTableHeadingRow">
+            <td class="dataTableHeadingContent" align="center"><?php echo TABLE_HEADING_DATE_ADDED; ?></td>
+            <td class="dataTableHeadingContent" align="center"><?php echo TABLE_HEADING_CUSTOMER_NOTIFIED; ?></td>
+            <td class="dataTableHeadingContent" align="center"><?php echo TABLE_HEADING_STATUS; ?></td>
+            <td class="dataTableHeadingContent" align="center"><?php echo TABLE_HEADING_COMMENTS; ?></td>
           </tr>
 <?php
     $orders_history_query = tep_db_query("select orders_status_id, date_added, customer_notified, comments from " . TABLE_ORDERS_STATUS_HISTORY . " where orders_id = '" . tep_db_input($oID) . "' order by date_added");
     if (tep_db_num_rows($orders_history_query)) {
       while ($orders_history = tep_db_fetch_array($orders_history_query)) {
-        echo '          <tr>' . "\n" .
-             '            <td class="smallText" align="center">' . tep_datetime_short($orders_history['date_added']) . '</td>' . "\n" .
-             '            <td class="smallText" align="center">';
+        echo '          <tr class="dataTableRow">' . "\n" .
+             '            <td class="dataTableContent" align="center">' . tep_datetime_short($orders_history['date_added']) . '</td>' . "\n" .
+             '            <td class="dataTableContent" align="center">';
         if ($orders_history['customer_notified'] == '1') {
           echo tep_image(DIR_WS_ICONS . 'tick.gif', ICON_TICK) . "</td>\n";
         } else {
           echo tep_image(DIR_WS_ICONS . 'cross.gif', ICON_CROSS) . "</td>\n";
         }
-        echo '            <td class="smallText">' . $orders_status_array[$orders_history['orders_status_id']] . '</td>' . "\n" .
-             '            <td class="smallText">' . nl2br(tep_db_output($orders_history['comments'])) . '&nbsp;</td>' . "\n" .
+        echo '            <td class="dataTableContent">' . $orders_status_array[$orders_history['orders_status_id']] . '</td>' . "\n" .
+             '            <td class="dataTableContent">' . nl2br(tep_db_output($orders_history['comments'])) . '&nbsp;</td>' . "\n" .
              '          </tr>' . "\n";
       }
     } else {
         echo '          <tr>' . "\n" .
-             '            <td class="smallText" colspan="5">' . TEXT_NO_ORDER_HISTORY . '</td>' . "\n" .
+             '            <td class="dataTableContent" colspan="5">' . TEXT_NO_ORDER_HISTORY . '</td>' . "\n" .
              '          </tr>' . "\n";
     }
 ?>
         </table></td>
       </tr>
-      <tr>
-        <td class="main"><br /><strong><?php echo TABLE_HEADING_COMMENTS; ?></strong></td>
-      </tr>
-      <tr>
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '1', '5'); ?></td>
-      </tr>
       <tr><?php echo tep_draw_form('status', FILENAME_ORDERS, tep_get_all_get_params(array('action')) . 'action=update_order'); ?>
-        <td class="main"><?php echo tep_draw_textarea_field('comments', 'soft', '60', '5'); ?></td>
+        <td class="header"><?php echo TABLE_HEADING_UPDATE; ?></td>
       </tr>
       <tr>
-        <td><?php echo tep_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
-      </tr>
-      <tr>
-        <td><table border="0" cellspacing="0" cellpadding="2">
-          <tr>
-            <td><table border="0" cellspacing="0" cellpadding="2">
-              <tr>
-                <td class="main"><strong><?php echo ENTRY_STATUS; ?></strong> <?php echo tep_draw_pull_down_menu('status', $orders_statuses, $order->info['orders_status']); ?></td>
-              </tr>
-              <tr>
-                <td class="main"><strong><?php echo ENTRY_NOTIFY_CUSTOMER; ?></strong> <?php echo tep_draw_checkbox_field('notify', '', true); ?></td>
-                <td class="main"><strong><?php echo ENTRY_NOTIFY_COMMENTS; ?></strong> <?php echo tep_draw_checkbox_field('notify_comments', '', true); ?></td>
-              </tr>
-            </table></td>
-            <td class="smallText" valign="top"><?php echo tep_draw_button(IMAGE_UPDATE, 'disk', null, 'primary'); ?></td>
+        <td><table class="dataTable" border="0" cellspacing="0" cellpadding="5">
+          <tr class="dataTableHeadingRow" align="center">
+            <td class="dataTableHeadingContent"><?php echo TABLE_HEADING_STATUS; ?></td>
+            <td class="dataTableHeadingContent"><?php echo TABLE_HEADING_NOTIFY_CUSTOMER; ?></td>
+            <td class="dataTableHeadingContent"><?php echo TABLE_HEADING_APPEND_COMMENTS; ?></td>
           </tr>
-        </table></td>
+          <tr class="dataTableRow" align="center">
+            <td class="dataTableContent"><?php echo tep_draw_pull_down_menu('status', $orders_statuses, $order->info['orders_status']); ?></td>
+            <td class="dataTableContent"><?php echo tep_draw_checkbox_field('notify', '', true); ?></td>
+            <td class="dataTableContent"><?php echo tep_draw_checkbox_field('notify_comments', '', true); ?></td>
+          </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="header"><?php echo TABLE_HEADING_COMMENTS; ?></td>
+      </tr>
+      <tr><td><table><tr>
+        <td class="main"><?php echo tep_draw_textarea_field('comments', 'soft', '60', '5'); ?></td>
+        <td class="smallText" valign="top"><?php echo tep_draw_button(IMAGE_UPDATE, 'disk', null, 'primary'); ?></td>
+      </tr></table></td>
       </form></tr>
 <?php
   } else {
@@ -318,7 +316,7 @@
       <tr>
         <td><table border="0" width="100%" cellspacing="0" cellpadding="0">
           <tr>
-            <td valign="top"><table border="0" width="100%" cellspacing="0" cellpadding="2">
+            <td valign="top"><table class="dataTable" border="0" width="100%" cellspacing="0" cellpadding="2">
               <tr class="dataTableHeadingRow">
                 <td class="dataTableHeadingContent"><?php echo TABLE_HEADING_CUSTOMERS; ?></td>
                 <td class="dataTableHeadingContent" align="right"><?php echo TABLE_HEADING_ORDER_TOTAL; ?></td>

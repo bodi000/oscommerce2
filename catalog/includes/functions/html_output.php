@@ -164,6 +164,32 @@
   }
 
 ////
+/* Output an iframe
+		@parameters
+			title=""
+			allowtransparency="true" 
+			vspace="0" 
+			tabindex="0" 
+			marginwidth="0" 
+			marginheight="0" 
+			hspace="0" 
+			frameborder="0" 
+			scrolling="no" 
+			width="100%">
+*/
+  function tep_draw_iframe($name, $src, $parameters = '', $style = '') {
+
+    $iframe = '<iframe name="' . tep_output_string($name) . ' id="' . tep_output_string($name) . '" src="' . tep_output_string($src) . '"';
+
+    if (tep_not_null($parameters)) $form .= ' ' . $parameters;
+    if (tep_not_null($style)) $form .= ' ' . $style;
+    
+    $iframe .= '></iframe>';
+
+    return $iframe;
+  }
+
+  ////
 // Output a form input field
   function tep_draw_input_field($name, $value = '', $parameters = '', $type = 'text', $reinsert_value = true) {
     global $HTTP_GET_VARS, $HTTP_POST_VARS;

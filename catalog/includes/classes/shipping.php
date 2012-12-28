@@ -39,6 +39,7 @@
           $GLOBALS[$include_modules[$i]['class']] = new $include_modules[$i]['class'];
         }
       }
+      
     }
 
     function quote($method = '', $module = '') {

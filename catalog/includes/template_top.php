@@ -26,9 +26,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo CHARSET; ?>" />
 <title><?php echo tep_output_string_protected($oscTemplate->getTitle()); ?></title>
 <base href="<?php echo (($request_type == 'SSL') ? HTTPS_SERVER : HTTP_SERVER) . DIR_WS_CATALOG; ?>" />
-<link rel="stylesheet" type="text/css" href="ext/jquery/ui/redmond/jquery-ui-1.8.23.css" />
-<script type="text/javascript" src="ext/jquery/jquery-1.8.0.min.js"></script>
-<script type="text/javascript" src="ext/jquery/ui/jquery-ui-1.8.23.min.js"></script>
+<link rel="stylesheet" type="text/css" href="ext/jquery/ui/smoothness/jquery-ui-1.9.2.custom.min.css" />
+<script type="text/javascript" src="ext/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="ext/jquery/ui/jquery-ui-1.9.2.custom.min.js"></script>
 
 <?php
   if (tep_not_null(JQUERY_DATEPICKER_I18N_CODE)) {
@@ -42,8 +42,8 @@ $.datepicker.setDefaults($.datepicker.regional['<?php echo JQUERY_DATEPICKER_I18
 ?>
 
 <script type="text/javascript" src="ext/jquery/bxGallery/jquery.bxGallery.1.1.min.js"></script>
-<link rel="stylesheet" type="text/css" href="ext/jquery/fancybox/jquery.fancybox-1.3.4.css" />
-<script type="text/javascript" src="ext/jquery/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<link rel="stylesheet" href="ext/jquery/fancybox/source/jquery.fancybox.css?v=2.1.3" type="text/css" media="screen" />
+<script type="text/javascript" src="ext/jquery/fancybox/source/jquery.fancybox.pack.js?v=2.1.3"></script>
 <link rel="stylesheet" type="text/css" href="ext/960gs/<?php echo ((stripos(HTML_PARAMS, 'dir="rtl"') !== false) ? 'rtl_' : ''); ?>960_24_col.css" />
 <link rel="stylesheet" type="text/css" href="stylesheet.css" />
 <?php echo $oscTemplate->getBlocks('header_tags'); ?>

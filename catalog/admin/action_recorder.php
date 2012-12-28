@@ -87,7 +87,7 @@
 
     <table border="0" width="100%" cellspacing="0" cellpadding="2">
       <tr>
-        <td><table border="0" width="100%" cellspacing="0" cellpadding="2" height="40">
+        <td><table border="0" width="100%" cellspacing="0" cellpadding="2">
           <tr>
             <td class="pageHeading"><?php echo HEADING_TITLE; ?></td>
             <td align="right"><table border="0" width="100%" cellspacing="0" cellpadding="0">
