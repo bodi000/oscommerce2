@@ -5,7 +5,7 @@
   osCommerce, Open Source E-Commerce Solutions
   http://www.oscommerce.com
 
-  Copyright (c) 2012 osCommerce
+  Copyright (c) 2013 osCommerce
 
   Released under the GNU General Public License
 */
@@ -18,9 +18,9 @@
 <title><?php echo TITLE; ?></title>
 <base href="<?php echo HTTP_SERVER . DIR_WS_ADMIN; ?>">
 <!--[if IE]><script type="text/javascript" src="<?php echo tep_catalog_href_link('ext/flot/excanvas.min.js'); ?>"></script><![endif]-->
-<link rel="stylesheet" type="text/css" href="<?php echo tep_catalog_href_link('ext/jquery/ui/smoothness/jquery-ui-1.9.2.custom.min.css'); ?>">
-<script type="text/javascript" src="<?php echo tep_catalog_href_link('ext/jquery/jquery-1.8.3.min.js'); ?>"></script> 
-<script type="text/javascript" src="<?php echo tep_catalog_href_link('ext/jquery/ui/jquery-ui-1.9.2.custom.min.js'); ?>"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo tep_catalog_href_link('ext/jquery/ui/redmond/jquery-ui-1.10.3.min.css'); ?>">
+<script type="text/javascript" src="<?php echo tep_catalog_href_link('ext/jquery/jquery-1.10.2.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo tep_catalog_href_link('ext/jquery/ui/jquery-ui-1.10.3.min.js'); ?>"></script>
 
 <?php
   if (tep_not_null(JQUERY_DATEPICKER_I18N_CODE)) {
@@ -32,7 +32,9 @@ $.datepicker.setDefaults($.datepicker.regional['<?php echo JQUERY_DATEPICKER_I18
 <?php
   }
 ?>
-<script type="text/javascript" src="<?php echo tep_catalog_href_link('ext/flot/jquery.flot.js'); ?>"></script>
+
+<script type="text/javascript" src="<?php echo tep_catalog_href_link('ext/flot/jquery.flot.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo tep_catalog_href_link('ext/flot/jquery.flot.time.min.js'); ?>"></script>
 <link rel="stylesheet" type="text/css" href="includes/stylesheet.css">
 <?php
   if (!tep_session_is_registered('admin')) {

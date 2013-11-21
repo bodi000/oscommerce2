@@ -5,7 +5,7 @@
   osCommerce, Open Source E-Commerce Solutions
   http://www.oscommerce.com
 
-  Copyright (c) 2012 osCommerce
+  Copyright (c) 2013 osCommerce
 
   Released under the GNU General Public License
 */
@@ -839,7 +839,7 @@
                             'uptime' => @exec('uptime'),
                             'http_server' => $HTTP_SERVER_VARS['SERVER_SOFTWARE']);
 
-    $data['mysql']  = array('version' => (function_exists('mysql_get_server_info') ? mysql_get_server_info() : ''),
+    $data['mysql']  = array('version' => tep_db_get_server_info(),
                             'date' => $db['datetime']);
 
     $data['php']    = array('version' => PHP_VERSION,
@@ -1264,16 +1264,7 @@
 // Returns the tax rate for a tax class
 // TABLES: tax_rates
   function tep_get_tax_rate_value($class_id) {
-    $tax_query = tep_db_query("select SUM(tax_rate) as tax_rate from " . TABLE_TAX_RATES . " where tax_class_id = '" . (int)$class_id . "' group by tax_priority");
-    if (tep_db_num_rows($tax_query)) {
-      $tax_multiplier = 0;
-      while ($tax = tep_db_fetch_array($tax_query)) {
-        $tax_multiplier += $tax['tax_rate'];
-      }
-      return $tax_multiplier;
-    } else {
-      return 0;
-    }
+    return tep_get_tax_rate($class_id, -1, -1);
   }
 
   function tep_call_function($function, $parameter, $object = '') {

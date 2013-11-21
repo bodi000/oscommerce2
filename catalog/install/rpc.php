@@ -5,7 +5,7 @@
   osCommerce, Open Source E-Commerce Solutions
   http://www.oscommerce.com
 
-  Copyright (c) 2008 osCommerce
+  Copyright (c) 2013 osCommerce
 
   Released under the GNU General Public License
 */
@@ -30,9 +30,7 @@
         osc_db_connect($db['DB_SERVER'], $db['DB_SERVER_USERNAME'], $db['DB_SERVER_PASSWORD']);
 
         if ($db_error == false) {
-          if (!@osc_db_select_db($db['DB_DATABASE'])) {
-            $db_error = mysql_error();
-          }
+          osc_db_select_db($db['DB_DATABASE']);
         }
 
         if ($db_error != false) {
